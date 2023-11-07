@@ -41,11 +41,21 @@ public class PizzApp extends javax.swing.JFrame {
 
         cmdValaszthatoPizzak.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Margherita", "Hawaii", "Songoku", "Diavola" }));
         cmdValaszthatoPizzak.setSelectedIndex(2);
+        cmdValaszthatoPizzak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdValaszthatoPizzakActionPerformed(evt);
+            }
+        });
 
         pnlMeret.setBorder(javax.swing.BorderFactory.createTitledBorder("Méret"));
 
         buttonGroup1.add(rdbMeret25);
         rdbMeret25.setText("25 cm");
+        rdbMeret25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbMeret25ActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(rdbMeret32);
         rdbMeret32.setSelected(true);
@@ -213,6 +223,35 @@ public class PizzApp extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void updatePrice() {
+    String selectedPizza = (String) cmdValaszthatoPizzak.getSelectedItem();
+    int price = 0;
+
+    if (selectedPizza.equals("Margherita")) {
+        price = 1400;
+    } else if (selectedPizza.equals("Hawaii")) {
+        price = 1660;
+    } else if (selectedPizza.equals("Songoku")) {
+        price = 1400;
+    } else if (selectedPizza.equals("Diavola")) {
+        price = 1600;
+    }
+
+    if (rdbMeret25.isSelected()) {
+        lblAr.setText(String.valueOf(price));
+    }
+}
+    
+    private void cmdValaszthatoPizzakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdValaszthatoPizzakActionPerformed
+        // TODO add your handling code here:
+        updatePrice();
+    }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
+
+    private void rdbMeret25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbMeret25ActionPerformed
+        // TODO add your handling code here:
+        updatePrice();
+    }//GEN-LAST:event_rdbMeret25ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
