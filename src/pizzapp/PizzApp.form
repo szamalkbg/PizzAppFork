@@ -177,6 +177,9 @@
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="32 cm"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbMeret32ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

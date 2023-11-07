@@ -60,6 +60,11 @@ public class PizzApp extends javax.swing.JFrame {
         buttonGroup1.add(rdbMeret32);
         rdbMeret32.setSelected(true);
         rdbMeret32.setText("32 cm");
+        rdbMeret32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbMeret32ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlMeretLayout = new javax.swing.GroupLayout(pnlMeret);
         pnlMeret.setLayout(pnlMeretLayout);
@@ -224,24 +229,35 @@ public class PizzApp extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updatePrice() {
+private void updatePrice() {
     String selectedPizza = (String) cmdValaszthatoPizzak.getSelectedItem();
     int price = 0;
 
-    if (selectedPizza.equals("Margherita")) {
-        price = 1400;
-    } else if (selectedPizza.equals("Hawaii")) {
-        price = 1660;
-    } else if (selectedPizza.equals("Songoku")) {
-        price = 1400;
-    } else if (selectedPizza.equals("Diavola")) {
-        price = 1600;
+    if (rdbMeret25.isSelected()) {
+        if (selectedPizza.equals("Margherita")) {
+            price = 1400;
+        } else if (selectedPizza.equals("Hawaii")) {
+            price = 1660;
+        } else if (selectedPizza.equals("Songoku")) {
+            price = 1400;
+        } else if (selectedPizza.equals("Diavola")) {
+            price = 1600;
+        }
+    } else if (rdbMeret32.isSelected()) {
+        if (selectedPizza.equals("Margherita")) {
+            price = 1600;
+        } else if (selectedPizza.equals("Hawaii")) {
+            price = 1880;
+        } else if (selectedPizza.equals("Songoku")) {
+            price = 1600;
+        } else if (selectedPizza.equals("Diavola")) {
+            price = 1800;
+        }
     }
 
-    if (rdbMeret25.isSelected()) {
-        lblAr.setText(String.valueOf(price));
-    }
+    lblAr.setText(String.valueOf(price));
 }
+
     
     private void cmdValaszthatoPizzakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdValaszthatoPizzakActionPerformed
         // TODO add your handling code here:
@@ -252,6 +268,11 @@ public class PizzApp extends javax.swing.JFrame {
         // TODO add your handling code here:
         updatePrice();
     }//GEN-LAST:event_rdbMeret25ActionPerformed
+
+    private void rdbMeret32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbMeret32ActionPerformed
+        // TODO add your handling code here:
+        updatePrice();
+    }//GEN-LAST:event_rdbMeret32ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
