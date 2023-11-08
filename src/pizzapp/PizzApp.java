@@ -97,6 +97,11 @@ public class PizzApp extends javax.swing.JFrame {
         lblAr.setText("1750");
 
         numDb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+        numDb.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                numDbStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlFizetendoLayout = new javax.swing.GroupLayout(pnlFizetendo);
         pnlFizetendo.setLayout(pnlFizetendoLayout);
@@ -255,6 +260,9 @@ private void updatePrice() {
         }
     }
 
+    int quantity = (Integer) numDb.getValue();
+    price *= quantity;
+    
     lblAr.setText(String.valueOf(price));
 }
 
@@ -273,6 +281,11 @@ private void updatePrice() {
         // TODO add your handling code here:
         updatePrice();
     }//GEN-LAST:event_rdbMeret32ActionPerformed
+
+    private void numDbStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numDbStateChanged
+        // TODO add your handling code here:
+        updatePrice();
+    }//GEN-LAST:event_numDbStateChanged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
