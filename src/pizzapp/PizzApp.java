@@ -314,7 +314,7 @@ private void displayOrderSummary() {
     }//GEN-LAST:event_numDbStateChanged
 
     private void btnRendelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRendelActionPerformed
-        // TODO add your handling code here:
+
         displayOrderSummary();
     }//GEN-LAST:event_btnRendelActionPerformed
 
@@ -373,3 +373,5 @@ private void displayOrderSummary() {
     private javax.swing.JTextArea txaOsszesito;
     // End of variables declaration//GEN-END:variables
 }
+
+//kesz
