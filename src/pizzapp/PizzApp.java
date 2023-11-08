@@ -169,6 +169,11 @@ public class PizzApp extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txaOsszesito);
 
         btnRendel.setText("Megrendelem");
+        btnRendel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRendelActionPerformed(evt);
+            }
+        });
 
         lblOsszesito.setText("Összestő:");
 
@@ -267,6 +272,27 @@ private void updatePrice() {
 }
 
     
+private void displayOrderSummary() {
+    String selectedPizza = (String) cmdValaszthatoPizzak.getSelectedItem();
+    int quantity = (Integer) numDb.getValue();
+    String size = rdbMeret25.isSelected() ? "25cm" : "32cm";
+    StringBuilder toppings = new StringBuilder();
+
+    if (chbSajt.isSelected()) {
+        toppings.append("- sajt\n");
+    }
+    if (chbHagyma.isSelected()) {
+        toppings.append("- hagyma\n");
+    }
+    if (chbAnanasz.isSelected()) {
+        toppings.append("- ananász\n");
+    }
+
+    String summary = String.format("A választott pizza: %s (%ddb)\nmérete: %s\nfeltétek:\n%s", selectedPizza, quantity, size, toppings.toString());
+    txaOsszesito.setText(summary);
+}
+
+
     private void cmdValaszthatoPizzakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdValaszthatoPizzakActionPerformed
         // TODO add your handling code here:
         updatePrice();
@@ -286,6 +312,11 @@ private void updatePrice() {
         // TODO add your handling code here:
         updatePrice();
     }//GEN-LAST:event_numDbStateChanged
+
+    private void btnRendelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRendelActionPerformed
+        // TODO add your handling code here:
+        displayOrderSummary();
+    }//GEN-LAST:event_btnRendelActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
